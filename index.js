@@ -11,22 +11,22 @@ async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       const allContacts = await listContacts();
-      console.log(allContacts);
+      console.table(allContacts);
       break;
     case "get":
       const getContact = await getContactById();
-      console.log(getContact);
+      console.table(getContact);
       break;
     case "add":
       const newContact = await addContact(name, email, phone);
-      console.log(newContact);
+      console.table(newContact);
       break;
     case "remove":
       const removedContact = await removeContact(id);
-      console.log(removedContact);
+      console.table(removedContact);
       break;
     default:
-      console.log(action);
+      console.warn(action);
       return "unknown action:-(";
   }
 }
