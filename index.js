@@ -14,7 +14,7 @@ async function invokeAction({ action, id, name, email, phone }) {
       console.table(allContacts);
       break;
     case "get":
-      const getContact = await getContactById();
+      const getContact = await getContactById(id);
       console.table(getContact);
       break;
     case "add":
@@ -40,6 +40,5 @@ program
 
 program.parse(process.argv);
 
-console.log(program.opts());
 
-invokeAction(program.opts()).then(console.log).catch(console.error);
+invokeAction(program.opts())
